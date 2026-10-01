@@ -1,7 +1,245 @@
-/* selectores de TIPO */
-body{
-    background-color: chocolate;
+/* MODELO DE CAJA ALTERNATIVO */
+* {
+    box-sizing: border-box;
 }
-header{
-    background-color: rgb(11, 161, 111);
+
+/* IMPORTAR FUENTE LOCAL */
+@font-face {
+    font-family: Poppins;
+    src: url(./fuentes/Poppins-Regular.ttf);
+}
+
+/* SELECTOR UNIVERSAL / RESETEO BÁSICO */
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* SELECTORES DE TIPO (ESTILOS GLOBALES) */
+html {
+    font-family: Poppins, 'Segoe UI', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px; /* Valor base de referencia */
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #1a202c;
+}
+
+header {
+    background-color: #0f172a;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   ENCABEZADO PRINCIPAL (.encabezado-principal)
+   ========================================================================== */
+.encabezado-principal {
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0e162b;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.encabezado-principal a img {
+    width: 45px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.encabezado-principal nav {
+    display: flex;
+    gap: 15px;
+}
+
+.encabezado-principal .enlace-nav {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.encabezado-principal .enlace-nav:hover {
+    color: #93c5fd;
+}
+
+/* ==========================================================================
+   CONTENIDO PRINCIPAL (.contenido-principal)
+   ========================================================================== */
+.contenido-principal {
+    background-color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: calc(100vh - 180px);
+}
+
+.contenido-principal h1 {
+    font-size: 2rem;
+    color: #0f172a;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.contenido-principal h2 {
+    font-size: 1.35rem;
+    color: #1d4ed8;
+    margin-top: 15px;
+}
+
+.contenido-principal h3 {
+    font-size: 1.1rem;
+    color: #0f172a;
+    margin-top: 20px;
+}
+
+.contenido-principal p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.contenido-principal ul.lista-servicios {
+    margin-left: 20px;
+    margin-bottom: 25px;
+}
+
+.contenido-principal ul.lista-servicios li {
+    margin-bottom: 8px;
+}
+
+/* CONTENEDOR DE FORMULARIO (CONTACTO) */
+.contenido-principal .contenedor-form {
+    padding: 20px 10%;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.contenido-principal .contenedor-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contenido-principal .contenedor-form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.contenido-principal .contenedor-form input[type="text"],
+.contenido-principal .contenedor-form input[type="email"],
+.contenido-principal .contenedor-form input[type="tel"],
+.contenido-principal .contenedor-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.contenido-principal .contenedor-form .contenedor-botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.contenido-principal .contenedor-form input[type="submit"],
+.contenido-principal .contenedor-form input[type="reset"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.contenido-principal .contenedor-form input[type="submit"] {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.contenido-principal .contenedor-form input[type="reset"] {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+
+/* ==========================================================================
+   PIE PRINCIPAL (.pie-principal)
+   ========================================================================== */
+.pie-principal {
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.pie-principal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pie-principal ul li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.pie-principal a {
+    color: #93c5fd;
+}
+
+/* BOTÓN/ENLACE FIJO DE CONTACTO EN EL VIEWPORT */
+.pie-principal li.mensajeria {
+    list-style: none;
+    position: fixed; /* Toma como referencia el viewport */
+    bottom: 20px;
+    right: 20px;
+    background-color: #2563eb;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pie-principal li.mensajeria a {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD (MEDIA QUERIES)
+   ========================================================================== */
+@media (width > 500px) {
+    body {
+        background-color: #e2e8f0;
+    }
+
+    .contenido-principal {
+        padding: 40px;
+    }
+}
+
+@media (width > 900px) {
+    body {
+        background-color: #cbd5e1;
+    }
+
+    .contenido-principal {
+        border-left: 1px solid #cbd5e1;
+        border-right: 1px solid #cbd5e1;
+    }
 }
